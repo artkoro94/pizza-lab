@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Clock3, Flame } from "lucide-react";
+import { StoreHoursBoard } from "@/features/store-hours/ui/store-hours-board";
 import { Container } from "@/shared/ui/container";
 
 export function Hero() {
@@ -9,10 +10,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_42%,rgba(255,91,46,0.18),transparent_38%)]" />
       <Container className="relative grid min-h-[680px] items-center gap-10 pb-16 pt-10 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="relative z-10 max-w-2xl">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
-            <span className="size-2 rounded-full bg-accent shadow-[0_0_14px_var(--color-accent)]" />
-            Доставка, которая задаёт настроение
-          </div>
+          <StoreHoursBoard />
 
           <h1 className="font-display text-[clamp(4.1rem,9vw,8.6rem)] font-black uppercase leading-[0.83] tracking-[-0.085em]">
             Время<br />
