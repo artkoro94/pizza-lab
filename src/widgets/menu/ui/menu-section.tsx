@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowUpRight, Check, Plus } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import { products } from "@/entities/product/data/products";
 import type { PizzaSize } from "@/features/cart/model/cart-store";
 import { getPizzaPrice, useCartStore } from "@/features/cart/model/cart-store";
@@ -20,15 +20,12 @@ const formatPrice = (price: number) =>
 export function MenuSection() {
   const addItem = useCartStore((state) => state.addItem);
   const [selectedSizes, setSelectedSizes] = useState<Record<string, PizzaSize>>({});
-  const [addedId, setAddedId] = useState<string | null>(null);
 
   const chooseSize = (productId: string, size: PizzaSize) =>
     setSelectedSizes((current) => ({ ...current, [productId]: size }));
 
   const handleAdd = (product: (typeof products)[number]) => {
     addItem(product, selectedSizes[product.id] ?? "30");
-    setAddedId(product.id);
-    window.setTimeout(() => setAddedId((current) => current === product.id ? null : current), 900);
   };
 
   return (
@@ -45,6 +42,7 @@ export function MenuSection() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {products.map((product, index) => {
             const size = selectedSizes[product.id] ?? "30";
+            const selectedIndex = sizes.findIndex((option) => option.value === size);
             return (
               <article key={product.id} className="group overflow-hidden rounded-[1.35rem] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(35,25,18,0.10)]">
                 <div className="relative aspect-[1.55] overflow-hidden bg-[#eee9e2]">
@@ -54,20 +52,31 @@ export function MenuSection() {
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="font-display text-xl font-black tracking-tight">{product.name}</h3>
-                    <span className="whitespace-nowrap text-sm font-extrabold">{formatPrice(getPizzaPrice(product.price, size))}</span>
+                    <span className="whitespace-nowrap text-sm font-extrabold tabular-nums">{formatPrice(getPizzaPrice(product.price, size))}</span>
                   </div>
                   <p className="mt-2 min-h-10 text-xs leading-5 text-black/45">{product.description}</p>
-                  <div className="mt-4 flex items-center gap-1.5 rounded-full bg-paper p-1">
+                  <div role="group" aria-label={`Размер пиццы ${product.name}`} className="relative mt-4 grid grid-cols-3 rounded-full bg-paper p-1">
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute bottom-1 left-1 top-1 w-[calc((100%-8px)/3)] rounded-full bg-ink shadow-sm transition-transform duration-300 ease-in-out"
+                      style={{ transform: `translateX(${selectedIndex * 100}%)` }}
+                    />
                     {sizes.map((option) => (
-                      <button key={option.value} type="button" onClick={() => chooseSize(product.id, option.value)} aria-pressed={size === option.value} className={`flex-1 rounded-full px-2 py-2 text-[11px] font-extrabold transition ${size === option.value ? "bg-ink text-white shadow-sm" : "text-black/45 hover:text-ink"}`}>
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => chooseSize(product.id, option.value)}
+                        aria-pressed={size === option.value}
+                        className={`relative z-10 cursor-pointer rounded-full px-2 py-2 text-[11px] font-extrabold transition-colors duration-300 ease-in-out ${size === option.value ? "text-white" : "text-black/45 hover:text-ink"}`}
+                      >
                         {option.label}
                       </button>
                     ))}
                   </div>
                   <div className="mt-4 flex items-center justify-between border-t border-black/5 pt-4">
                     <span className="text-[10px] font-bold uppercase tracking-[0.13em] text-black/35">№ 0{index + 1}</span>
-                    <button type="button" onClick={() => handleAdd(product)} className="inline-flex h-10 items-center gap-2 rounded-full bg-accent px-4 text-xs font-extrabold text-ink transition hover:bg-accent-dark">
-                      {addedId === product.id ? <><Check size={15} /> Добавлено</> : <><Plus size={16} /> В корзину</>}
+                    <button type="button" onClick={() => handleAdd(product)} className="inline-flex h-10 cursor-pointer items-center gap-2 rounded-full bg-accent px-4 text-xs font-extrabold text-ink transition-colors duration-200 ease-in-out hover:bg-accent-dark active:scale-[0.97]">
+                      <Plus size={16} /> В корзину
                     </button>
                   </div>
                 </div>
