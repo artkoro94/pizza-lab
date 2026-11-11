@@ -76,15 +76,15 @@ export function CartDrawer() {
                         <h3 className="font-display text-base font-black">{item.name}</h3>
                         <p className="mt-1 text-xs text-black/45">{item.size} см · {formatPrice(item.price)}</p>
                       </div>
-                      <button type="button" onClick={() => removeItem(item.id)} aria-label={`Удалить ${item.name}`} className="grid size-8 shrink-0 place-items-center rounded-full text-black/35 transition hover:bg-red-50 hover:text-red-600">
+                      <button type="button" onClick={() => removeItem(item.id)} aria-label={`Удалить ${item.name}`} className="grid size-8 shrink-0 cursor-pointer place-items-center rounded-full text-black/35 transition-colors duration-200 ease-in-out hover:bg-red-50 hover:text-red-600">
                         <Trash2 size={15} />
                       </button>
                     </div>
                     <div className="mt-auto flex items-center justify-between pt-3">
                       <div className="flex items-center gap-3 rounded-full bg-paper px-2 py-1">
-                        <button type="button" onClick={() => decrease(item.id)} aria-label="Уменьшить количество" className="grid size-7 place-items-center rounded-full transition hover:bg-white"><Minus size={13} /></button>
+                        <button type="button" onClick={() => decrease(item.id)} aria-label="Уменьшить количество" className="grid size-7 cursor-pointer place-items-center rounded-full transition-colors duration-200 ease-in-out hover:bg-white"><Minus size={13} /></button>
                         <span className="min-w-4 text-center text-sm font-bold tabular-nums">{item.quantity}</span>
-                        <button type="button" onClick={() => increase(item.id)} aria-label="Увеличить количество" className="grid size-7 place-items-center rounded-full transition hover:bg-white"><Plus size={13} /></button>
+                        <button type="button" onClick={() => increase(item.id)} aria-label="Увеличить количество" className="grid size-7 cursor-pointer place-items-center rounded-full transition-colors duration-200 ease-in-out hover:bg-white"><Plus size={13} /></button>
                       </div>
                       <span className="text-sm font-black tabular-nums">{formatPrice(item.price * item.quantity)}</span>
                     </div>
