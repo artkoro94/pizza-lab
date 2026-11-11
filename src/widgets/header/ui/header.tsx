@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight, ShoppingBag } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { CartButton } from "@/features/cart/ui/cart-button";
 import { Container } from "@/shared/ui/container";
 
 export function Header() {
@@ -21,9 +22,7 @@ export function Header() {
           <a href="#menu" className="hidden items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-white/40 sm:flex">
             Смотреть меню <ArrowUpRight size={15} />
           </a>
-          <a href="#menu" aria-label="Перейти к меню" className="grid size-11 place-items-center rounded-full bg-accent text-ink transition hover:scale-105">
-            <ShoppingBag size={18} />
-          </a>
+          <CartButton />
         </div>
       </Container>
     </header>
