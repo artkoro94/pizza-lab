@@ -11,6 +11,7 @@ export const checkoutSchema = z
     address: z.string().trim().max(200, "Слишком длинный адрес"),
     apartment: z.string().trim().max(20, "Слишком длинное значение"),
     entrance: z.string().trim().max(20, "Слишком длинное значение"),
+    intercom: z.string().trim().max(20, "Слишком длинное значение"),
     floor: z.string().trim().max(20, "Слишком длинное значение"),
     paymentMethod: z.enum(["online", "courier"]),
     comment: z.string().trim().max(500, "Комментарий не должен превышать 500 символов"),
