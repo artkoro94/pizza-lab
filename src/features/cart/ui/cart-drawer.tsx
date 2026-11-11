@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import {
   selectCartTotal,
@@ -93,9 +94,13 @@ export function CartDrawer() {
                 <strong className="font-display text-2xl font-black tabular-nums">{formatPrice(total)}</strong>
               </div>
               <p className="mt-2 text-xs leading-5 text-black/40">Доставка и оформление заказа будут добавлены на следующем этапе.</p>
-              <button type="button" disabled className="mt-5 flex h-14 w-full items-center justify-center rounded-full bg-ink text-sm font-extrabold text-white/45" title="Оформление заказа появится в следующем этапе">
-                Оформление заказа — скоро
-              </button>
+              <Link
+                href="/checkout"
+                onClick={() => setOpen(false)}
+                className="mt-5 flex h-14 w-full items-center justify-center rounded-full bg-accent text-sm font-extrabold text-ink transition hover:bg-accent-dark"
+              >
+                Перейти к оформлению
+              </Link>
             </div>
           </>
         )}
