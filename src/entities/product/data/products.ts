@@ -9,7 +9,7 @@ export const products: Product[] = [
     weight: "от 450 г",
     category: "classic",
     badge: "ХИТ",
-    image: "/images/pepperoni.webp",
+    image: "/images/pepperoni.jpg",
   },
   {
     id: "four-cheese",
@@ -19,7 +19,7 @@ export const products: Product[] = [
     weight: "от 440 г",
     category: "vegetarian",
     badge: "НЕЖНАЯ",
-    image: "/images/four-cheese.webp",
+    image: "/images/four-cheeze.jpg",
   },
   {
     id: "margarita",
@@ -28,7 +28,7 @@ export const products: Product[] = [
     price: 490,
     weight: "от 420 г",
     category: "classic",
-    image: "/images/margherita.webp",
+    image: "/images/margherita.jpg",
   },
   {
     id: "bbq",
@@ -38,6 +38,6 @@ export const products: Product[] = [
     weight: "от 480 г",
     category: "signature",
     badge: "НОВИНКА",
-    image: "/images/bbq.webp",
+    image: "/images/bbq.jpg",
   },
 ];
