@@ -1,4 +1,3 @@
-import { MessageCircle, Send } from "lucide-react";
 import { Container } from "@/shared/ui/container";
 import { siteConfig } from "@/shared/config/site";
 
@@ -13,12 +12,11 @@ export function Footer() {
           </div>
           <div className="flex flex-col gap-2 text-sm">
             <span className="text-xs font-bold uppercase tracking-widest text-white/35">Есть вопросы?</span>
-            <a className="text-xl font-bold transition hover:text-accent" href="tel:+78005553535">{siteConfig.phone}</a>
+            <a className="text-xl font-bold transition hover:text-accent" href={`tel:${siteConfig.phone.replace(/[^+\\d]/g, "")}`}>{siteConfig.phone}</a>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-4 pt-6 text-[10px] font-semibold uppercase tracking-wider text-white/35 sm:flex-row">
-          <span>© {new Date().getFullYear()} PIZZA LAB. Демо-концепция.</span>
-          <div className="flex gap-5"><a href="#" aria-label="Telegram"><Send size={15} /></a><a href="#" aria-label="ВКонтакте"><MessageCircle size={15} /></a><span>Сделано с характером</span></div>
+        <div className="pt-7 text-center text-[10px] font-semibold uppercase tracking-wider text-white/35">
+          © 2026 PIZZA LAB. Демо-концепция.
         </div>
       </Container>
     </footer>
