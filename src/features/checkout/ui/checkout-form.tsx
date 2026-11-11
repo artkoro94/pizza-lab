@@ -13,13 +13,11 @@ import {
   checkoutSchema,
   type CheckoutFormValues,
 } from "@/features/checkout/model/checkout-schema";
+import { checkoutConfig, getDeliveryPrice } from "@/shared/config/checkout";
 import { Container } from "@/shared/ui/container";
 
 const formatPrice = (price: number) =>
   new Intl.NumberFormat("ru-RU").format(price) + " ₽";
-
-const DELIVERY_PRICE = 199;
-const FREE_DELIVERY_FROM = 1500;
 
 const inputClass =
   "checkout-field mt-2 h-12 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-0";
@@ -55,8 +53,7 @@ export function CheckoutForm() {
 
   const deliveryMethod = useWatch({ control, name: "deliveryMethod" });
   const deliveryMethodField = register("deliveryMethod");
-  const deliveryPrice =
-    deliveryMethod === "pickup" || total >= FREE_DELIVERY_FROM ? 0 : DELIVERY_PRICE;
+  const deliveryPrice = getDeliveryPrice(total, deliveryMethod);
   const finalTotal = total + deliveryPrice;
 
   const onSubmit = async (values: CheckoutFormValues) => {
@@ -196,7 +193,7 @@ export function CheckoutForm() {
           <div className="space-y-3 text-sm">
             <div className="flex justify-between text-white/55"><span>Товары</span><span>{formatPrice(total)}</span></div>
             <div className="flex justify-between text-white/55"><span>Доставка</span><span>{deliveryPrice === 0 ? "Бесплатно" : formatPrice(deliveryPrice)}</span></div>
-            {deliveryMethod === "delivery" && total < FREE_DELIVERY_FROM && <p className="text-xs leading-5 text-white/40">Бесплатная доставка от {formatPrice(FREE_DELIVERY_FROM)}</p>}
+            {deliveryMethod === "delivery" && total < checkoutConfig.freeDeliveryFrom && <p className="text-xs leading-5 text-white/40">Бесплатная доставка от {formatPrice(checkoutConfig.freeDeliveryFrom)}</p>}
           </div>
           <div className="my-6 border-t border-white/10" />
           <div className="flex items-end justify-between"><span className="text-sm text-white/55">Итого</span><strong className="font-display text-3xl font-black tabular-nums">{formatPrice(finalTotal)}</strong></div>

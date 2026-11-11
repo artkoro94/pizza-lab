@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { products } from "@/entities/product/data/products";
 import type { PizzaSize } from "@/features/cart/model/cart-store";
 import { getPizzaPrice, useCartStore } from "@/features/cart/model/cart-store";
+import { DeliveryInfoButton } from "@/features/delivery/ui/delivery-info-button";
 import { Container } from "@/shared/ui/container";
 
 const sizes: { value: PizzaSize; label: string }[] = [
@@ -90,9 +91,7 @@ export function MenuSection() {
           })}
         </div>
         <div className="mt-10 flex justify-center">
-          <a href="#delivery" className="inline-flex items-center gap-3 rounded-full border border-black/15 px-6 py-3 text-xs font-extrabold uppercase tracking-wider transition hover:border-black">
-            Условия доставки <ArrowUpRight size={15} />
-          </a>
+          <DeliveryInfoButton variant="promo" />
         </div>
       </Container>
     </section>

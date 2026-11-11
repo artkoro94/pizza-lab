@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Clock3, MapPin, PackageCheck, ShoppingBag, Truck, X } from "lucide-react";
 
 const terms = [
@@ -32,6 +32,54 @@ type DeliveryInfoButtonProps = {
 
 export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonProps) {
   const [open, setOpen] = useState(false);
+  const dialogId = useId();
+  const titleId = `${dialogId}-title`;
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) {
+        event.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      triggerRef.current?.focus();
+    };
+  }, [open]);
 
   const buttonClass =
     variant === "promo"
@@ -40,7 +88,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={buttonClass}>
+      <button ref={triggerRef} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open} aria-controls={dialogId} className={buttonClass}>
         {variant === "promo" ? "Условия доставки и оплаты" : "Условия заказа"}
       </button>
 
@@ -52,12 +100,16 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
           }}
         >
           <section
+            ref={dialogRef}
+            id={dialogId}
             role="dialog"
             aria-modal="true"
-            aria-labelledby="delivery-dialog-title"
-            className="relative my-auto w-full max-w-[620px] rounded-[1.75rem] bg-paper p-6 text-ink shadow-2xl sm:p-9"
+            aria-labelledby={titleId}
+            tabIndex={-1}
+            className="relative my-auto w-full max-w-[620px] rounded-[1.75rem] bg-paper p-6 text-ink shadow-2xl outline-none sm:p-9"
           >
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Закрыть условия заказа"
@@ -67,7 +119,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
             </button>
 
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-dark">PIZZA LAB · ИНФОРМАЦИЯ</p>
-            <h2 id="delivery-dialog-title" className="mt-3 max-w-md font-display text-3xl font-black tracking-tight sm:text-4xl">
+            <h2 id={titleId} className="mt-3 max-w-md font-display text-3xl font-black tracking-tight sm:text-4xl">
               Условия заказа<span className="text-accent">.</span>
             </h2>
             <p className="mt-3 max-w-lg text-sm leading-6 text-black/55">
