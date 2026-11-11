@@ -1,11 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
-    ],
-  },
+  // All images are self-hosted in /public/images.
+  // No external image hosts are required at runtime.
   poweredByHeader: false,
 };
 
