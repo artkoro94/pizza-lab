@@ -36,7 +36,12 @@ export function MenuSection() {
             <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-accent-dark">Наше меню / 01—04</p>
             <h2 className="mt-4 font-display text-5xl font-black uppercase leading-none tracking-[-0.07em] sm:text-7xl">Выбирай<br />свой вайб<span className="text-accent">.</span></h2>
           </div>
-          <p className="max-w-xs text-sm leading-6 text-black/50">Проверенная классика и смелые сочетания. Каждую пиццу готовим после заказа.</p>
+          <div className="relative max-w-sm self-start border-l-2 border-accent pl-5 sm:mb-2 sm:self-end">
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-dark">Свежая из печи</p>
+            <p className="mt-2 text-sm font-medium leading-6 text-ink/65 sm:text-[15px]">
+              Проверенная классика и смелые сочетания. Каждую пиццу готовим после заказа.
+            </p>
+          </div>
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
