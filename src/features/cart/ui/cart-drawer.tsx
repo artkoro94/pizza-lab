@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import {
   selectCartTotal,
@@ -19,22 +20,32 @@ export function CartDrawer() {
   const decrease = useCartStore((state) => state.decrease);
   const removeItem = useCartStore((state) => state.removeItem);
   const total = useCartStore(selectCartTotal);
+  const [mounted, setMounted] = useState(isOpen);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (isOpen) {
+      setMounted(true);
+      return;
+    }
+    const timeoutId = window.setTimeout(() => setMounted(false), 300);
+    return () => window.clearTimeout(timeoutId);
+  }, [isOpen]);
+
+  if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 z-50">
+    <div className={`fixed inset-0 z-50 transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}>
       <button
         type="button"
         aria-label="Закрыть корзину"
         onClick={() => setOpen(false)}
-        className="absolute inset-0 cursor-default bg-black/65 backdrop-blur-[2px]"
+        className={`absolute inset-0 cursor-default bg-black/65 backdrop-blur-[2px] transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-100" : "opacity-0"}`}
       />
       <aside
         role="dialog"
         aria-modal="true"
         aria-labelledby="cart-title"
-        className="absolute inset-y-0 right-0 flex w-full max-w-[460px] flex-col bg-paper text-ink shadow-2xl"
+        className={`absolute inset-y-0 right-0 flex w-full max-w-[460px] flex-col bg-paper text-ink shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between border-b border-black/10 px-6 py-5">
           <div>
