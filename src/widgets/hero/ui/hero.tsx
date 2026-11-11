@@ -48,11 +48,10 @@ export function Hero() {
           <div className="absolute inset-[23%] rounded-full bg-accent/15 blur-3xl" />
           <div className="absolute inset-0 rotate-[-12deg]">
             <Image
-              src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1200&q=88"
+              src="/images/pizza-hero.svg"
               alt="Аппетитная пицца с сыром и свежими ингредиентами"
               fill
               priority
-              unoptimized
               sizes="(max-width: 1024px) 90vw, 48vw"
               className="object-contain drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]"
             />
