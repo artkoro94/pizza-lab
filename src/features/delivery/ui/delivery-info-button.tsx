@@ -7,7 +7,7 @@ const terms = [
   {
     icon: Truck,
     title: "Доставка до двери",
-    description: "199 ₽. Бесплатно при заказе от 1 500 ₽.",
+    description: "199 ₽. Бесплатно при заказе от 1 500 ₽.",
   },
   {
     icon: ShoppingBag,
