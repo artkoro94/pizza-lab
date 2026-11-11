@@ -62,7 +62,7 @@ export const useCartStore = create<CartState>()(
                     quantity: 1,
                   },
                 ],
-            open: true,
+            open: false,
           };
         });
       },
