@@ -18,6 +18,7 @@ export function CartDrawer() {
   const increase = useCartStore((state) => state.increase);
   const decrease = useCartStore((state) => state.decrease);
   const removeItem = useCartStore((state) => state.removeItem);
+  const clear = useCartStore((state) => state.clear);
   const total = useCartStore(selectCartTotal);
   return (
     <div aria-hidden={!isOpen} inert={!isOpen} className={`invisible fixed inset-0 z-50 opacity-0 transition-[opacity,visibility] duration-300 ease-in-out ${isOpen ? "visible opacity-100 delay-0" : "pointer-events-none delay-300"}`}>
@@ -38,9 +39,16 @@ export function CartDrawer() {
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-dark">PIZZA LAB</p>
             <h2 id="cart-title" className="mt-1 font-display text-2xl font-black">Корзина</h2>
           </div>
-          <button type="button" onClick={() => setOpen(false)} aria-label="Закрыть" className="grid size-10 place-items-center rounded-full border border-black/10 transition hover:bg-black/5">
-            <X size={19} />
-          </button>
+          <div className="flex items-center gap-2">
+            {items.length > 0 && (
+              <button type="button" onClick={clear} className="inline-flex h-10 cursor-pointer items-center gap-2 rounded-full px-3 text-xs font-bold text-black/45 transition-colors duration-200 ease-in-out hover:bg-red-50 hover:text-red-600" aria-label="Очистить всю корзину">
+                <Trash2 size={14} /> Очистить
+              </button>
+            )}
+            <button type="button" onClick={() => setOpen(false)} aria-label="Закрыть" className="grid size-10 cursor-pointer place-items-center rounded-full border border-black/10 transition hover:bg-black/5">
+              <X size={19} />
+            </button>
+          </div>
         </div>
 
         {items.length === 0 ? (
