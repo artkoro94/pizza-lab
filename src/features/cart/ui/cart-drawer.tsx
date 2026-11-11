@@ -58,7 +58,7 @@ export function CartDrawer() {
             </div>
             <h3 className="mt-6 font-display text-2xl font-black">Пока пусто</h3>
             <p className="mt-2 max-w-xs text-sm leading-6 text-black/50">Самое время выбрать пиццу. Добавь любимую — и она появится здесь.</p>
-            <button type="button" onClick={() => setOpen(false)} className="mt-6 rounded-full bg-accent px-6 py-3 text-sm font-extrabold text-ink transition hover:bg-accent-dark">
+            <button type="button" onClick={() => setOpen(false)} className="mt-6 cursor-pointer rounded-full bg-accent px-6 py-3 text-sm font-extrabold text-ink transition-colors duration-200 ease-in-out hover:bg-accent-dark">
               Перейти к меню
             </button>
           </div>
