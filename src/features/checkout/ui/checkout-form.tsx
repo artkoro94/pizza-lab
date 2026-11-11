@@ -34,6 +34,7 @@ export function CheckoutForm() {
   const {
     register,
     control,
+    setValue,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<CheckoutFormValues>({
@@ -53,6 +54,7 @@ export function CheckoutForm() {
   });
 
   const deliveryMethod = useWatch({ control, name: "deliveryMethod" });
+  const deliveryMethodField = register("deliveryMethod");
   const deliveryPrice =
     deliveryMethod === "pickup" || total >= FREE_DELIVERY_FROM ? 0 : DELIVERY_PRICE;
   const finalTotal = total + deliveryPrice;
@@ -123,11 +125,16 @@ export function CheckoutForm() {
             <h2 className="font-display text-xl font-black">Как получить заказ?</h2>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               <label className={`flex cursor-pointer items-center gap-3 rounded-2xl border p-4 transition ${deliveryMethod === "delivery" ? "border-accent bg-accent/5" : "border-black/10"}`}>
-                <input {...register("deliveryMethod")} type="radio" value="delivery" className="accent-[#ff633e]" />
+                <input {...deliveryMethodField} onChange={(event) => {
+                  void deliveryMethodField.onChange(event);
+                }} type="radio" value="delivery" className="accent-[#ff633e]" />
                 <span><strong className="block text-sm">Доставка</strong><span className="mt-1 block text-xs text-black/45">Привезём по адресу</span></span>
               </label>
               <label className={`flex cursor-pointer items-center gap-3 rounded-2xl border p-4 transition ${deliveryMethod === "pickup" ? "border-accent bg-accent/5" : "border-black/10"}`}>
-                <input {...register("deliveryMethod")} type="radio" value="pickup" className="accent-[#ff633e]" />
+                <input {...deliveryMethodField} onChange={(event) => {
+                  void deliveryMethodField.onChange(event);
+                  setValue("paymentMethod", "online", { shouldValidate: true });
+                }} type="radio" value="pickup" className="accent-[#ff633e]" />
                 <span><strong className="block text-sm">Самовывоз</strong><span className="mt-1 block text-xs text-black/45">Заберёте самостоятельно</span></span>
               </label>
             </div>
@@ -151,11 +158,13 @@ export function CheckoutForm() {
 
           <section className="rounded-3xl bg-white p-5 shadow-sm sm:p-7">
             <h2 className="font-display text-xl font-black">Оплата</h2>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 has-[:checked]:border-accent has-[:checked]:bg-accent/5">
-                <input {...register("paymentMethod")} type="radio" value="courier" className="accent-[#ff633e]" />
-                <span className="text-sm font-bold">Курьеру при получении</span>
-              </label>
+            <div className={`mt-5 grid gap-3 ${deliveryMethod === "pickup" ? "sm:grid-cols-1" : "sm:grid-cols-2"}`}>
+              {deliveryMethod === "delivery" && (
+                <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 has-[:checked]:border-accent has-[:checked]:bg-accent/5">
+                  <input {...register("paymentMethod")} type="radio" value="courier" className="accent-[#ff633e]" />
+                  <span className="text-sm font-bold">Курьеру при получении</span>
+                </label>
+              )}
               <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 has-[:checked]:border-accent has-[:checked]:bg-accent/5">
                 <input {...register("paymentMethod")} type="radio" value="online" className="accent-[#ff633e]" />
                 <span className="text-sm font-bold">Онлайн (демо)</span>
