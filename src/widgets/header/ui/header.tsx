@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/shared/ui/container";
+import { DeliveryInfoButton } from "@/features/delivery/ui/delivery-info-button";
 
 export function Header() {
   return (
@@ -14,7 +15,7 @@ export function Header() {
         <nav aria-label="Основная навигация" className="hidden items-center gap-9 text-sm font-medium text-white/65 md:flex">
           <a href="#menu" className="transition hover:text-white">Меню</a>
           <a href="#about" className="transition hover:text-white">О нас</a>
-          <a href="#delivery" className="transition hover:text-white">Доставка</a>
+          <DeliveryInfoButton />
         </nav>
 
         <div className="flex items-center gap-3">
