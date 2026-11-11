@@ -53,3 +53,6 @@ button { font: inherit; }
   from { opacity: 0; transform: translate3d(12px, 0, 0) scale(.98); }
   to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
 }
+
+/* Checkout fields use a single accent border instead of the global focus outline. */
+.checkout-field:focus-visible { outline: none; }
