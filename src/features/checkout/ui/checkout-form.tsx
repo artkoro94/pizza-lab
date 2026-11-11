@@ -60,7 +60,7 @@ export function CheckoutForm() {
   const onSubmit = async (values: CheckoutFormValues) => {
     // Demo flow: no personal data is sent to a server or stored.
     await new Promise((resolve) => window.setTimeout(resolve, 450));
-    const number = `PL-${Date.now().toString().slice(-6)}`;
+    const number = "PL-DEMO-2026";
     setOrderNumber(number);
     clear();
     void values;
