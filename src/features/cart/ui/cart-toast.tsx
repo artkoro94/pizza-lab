@@ -20,7 +20,7 @@ export function CartToast() {
     <div
       role="status"
       aria-live="polite"
-      className="fixed bottom-5 left-5 z-[60] flex max-w-[calc(100vw-2.5rem)] items-center gap-3 rounded-2xl border border-black/5 bg-white px-4 py-3.5 text-sm font-semibold text-ink shadow-[0_12px_45px_rgba(0,0,0,0.16)] animate-[toast-in_280ms_ease-out]"
+      className="fixed bottom-5 right-5 z-[60] flex max-w-[calc(100vw-2.5rem)] items-center gap-3 rounded-2xl border border-black/5 bg-white px-4 py-3.5 text-sm font-semibold text-ink shadow-[0_12px_45px_rgba(0,0,0,0.16)] animate-[toast-in-right_280ms_ease-out]"
     >
       <span className="grid size-8 shrink-0 place-items-center rounded-full bg-green-50 text-green-600">
         <Check size={17} />
