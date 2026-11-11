@@ -18,7 +18,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-9 max-w-md text-base leading-7 text-white/60 sm:text-lg sm:leading-8">
-            Тонкое тесто, щедрая начинка и тот самый тянущийся сыр. Готовим с характером — привозим горячей.
+            Тонкое тесто, щедрая начинка и тот самый тянущийся сыр. Готовим из свежих ингредиентов и привозим горячей.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
