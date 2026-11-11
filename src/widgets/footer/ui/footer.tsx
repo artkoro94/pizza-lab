@@ -1,0 +1,26 @@
+import { MessageCircle, Send } from "lucide-react";
+import { Container } from "@/shared/ui/container";
+import { siteConfig } from "@/shared/config/site";
+
+export function Footer() {
+  return (
+    <footer id="delivery" className="bg-ink py-12 text-white">
+      <Container>
+        <div className="flex flex-col justify-between gap-10 border-b border-white/10 pb-10 md:flex-row md:items-end">
+          <div>
+            <a href="#" className="font-display text-3xl font-black tracking-[-0.08em]">PIZZA<span className="text-accent">LAB</span></a>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-white/40">Горячая пицца, яркие вкусы и доставка с заботой. Работаем в демонстрационном режиме.</p>
+          </div>
+          <div className="flex flex-col gap-2 text-sm">
+            <span className="text-xs font-bold uppercase tracking-widest text-white/35">Есть вопросы?</span>
+            <a className="text-xl font-bold transition hover:text-accent" href="tel:+78005553535">{siteConfig.phone}</a>
+          </div>
+        </div>
+        <div className="flex flex-col justify-between gap-4 pt-6 text-[10px] font-semibold uppercase tracking-wider text-white/35 sm:flex-row">
+          <span>© {new Date().getFullYear()} PIZZA LAB. Демо-концепция.</span>
+          <div className="flex gap-5"><a href="#" aria-label="Telegram"><Send size={15} /></a><a href="#" aria-label="ВКонтакте"><MessageCircle size={15} /></a><span>Сделано с характером</span></div>
+        </div>
+      </Container>
+    </footer>
+  );
+}
