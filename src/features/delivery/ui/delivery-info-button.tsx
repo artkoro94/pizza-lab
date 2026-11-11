@@ -42,6 +42,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
     if (!open) return;
 
     const previousOverflow = document.body.style.overflow;
+    const triggerElement = triggerRef.current;
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
 
@@ -77,7 +78,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
-      triggerRef.current?.focus();
+      triggerElement?.focus();
     };
   }, [open]);
 
