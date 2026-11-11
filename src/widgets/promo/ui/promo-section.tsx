@@ -18,7 +18,7 @@ export function PromoSection() {
                 <span className="inline-flex items-center gap-2"><Check size={15} /> Тесто собственного приготовления</span>
               </div>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><a href="#menu" className="inline-flex h-14 items-center justify-center gap-4 rounded-full bg-ink px-7 text-sm font-bold text-accent transition hover:scale-105">Найти любимую <ArrowUpRight size={17} /></a><a href={`tel:${siteConfig.phone.replace(/[^+\\d]/g, "")}`} className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-ink/25 px-6 text-sm font-bold text-ink transition hover:bg-ink/5"><Phone size={16} /> {siteConfig.phone}</a></div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><a href="#menu" className="inline-flex h-14 items-center justify-center gap-4 rounded-full bg-ink px-7 text-sm font-bold text-accent transition hover:scale-105">Найти любимую <ArrowUpRight size={17} /></a><a href={`tel:${siteConfig.phone.replace(/[^+\\d]/g, "")}`} className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-ink/25 px-6 text-sm font-bold text-ink transition hover:bg-ink/5"><Phone size={16} /> {siteConfig.phone}</a><a href="#delivery-terms" className="inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-full border border-ink/25 px-6 text-xs font-extrabold uppercase tracking-wider text-ink transition hover:bg-ink/5">Условия доставки <ArrowUpRight size={15} /></a></div>
           </div>
         </div>
       </Container>
