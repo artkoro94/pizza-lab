@@ -19,7 +19,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="#menu" className="hidden items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-white/40 sm:flex">
+          <a href="#menu" className="hidden items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold text-accent transition hover:border-accent sm:flex">
             Смотреть меню <ArrowUpRight size={15} />
           </a>
           <CartButton />
