@@ -19,7 +19,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 ::selection { background: var(--color-accent); color: #171311; }
-a { color: inherit; text-decoration: none; }
+a { text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
