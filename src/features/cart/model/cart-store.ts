@@ -3,6 +3,9 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import type { Product } from "@/entities/product/model/types";
+import { getPizzaPrice } from "./cart-pricing";
+
+export { getPizzaPrice } from "./cart-pricing";
 
 export type PizzaSize = "25" | "30" | "35";
 
@@ -28,15 +31,6 @@ type CartState = {
   clearToast: () => void;
   setOpen: (open: boolean) => void;
 };
-
-const SIZE_EXTRA: Record<PizzaSize, number> = {
-  "25": 0,
-  "30": 150,
-  "35": 300,
-};
-
-export const getPizzaPrice = (basePrice: number, size: PizzaSize) =>
-  basePrice + SIZE_EXTRA[size];
 
 export const useCartStore = create<CartState>()(
   persist(
