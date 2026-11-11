@@ -24,6 +24,8 @@ type CartState = {
   removeItem: (id: string) => void;
   clear: () => void;
   open: boolean;
+  toast: string | null;
+  clearToast: () => void;
   setOpen: (open: boolean) => void;
 };
 
@@ -41,6 +43,8 @@ export const useCartStore = create<CartState>()(
     (set) => ({
       items: [],
       open: false,
+      toast: null,
+      clearToast: () => set({ toast: null }),
       addItem: (product, size) => {
         const id = `${product.id}-${size}`;
         set((state) => {
@@ -63,6 +67,7 @@ export const useCartStore = create<CartState>()(
                   },
                 ],
             open: false,
+            toast: `${product.name} добавлена в корзину`,
           };
         });
       },
