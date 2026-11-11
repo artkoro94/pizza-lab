@@ -100,6 +100,13 @@ export function CartDrawer() {
               </div>
               <p className="mt-2 text-xs leading-5 text-black/40">Доставка и оформление заказа будут добавлены на следующем этапе.</p>
               <Link
+                href="/#menu"
+                onClick={() => setOpen(false)}
+                className="mt-4 flex h-11 w-full cursor-pointer items-center justify-center rounded-full border border-black/10 text-sm font-bold text-ink transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent/5"
+              >
+                Хотите добавить пиццу? Выбрать в меню
+              </Link>
+              <Link
                 href="/checkout"
                 onClick={() => setOpen(false)}
                 className="mt-5 flex h-14 w-full items-center justify-center rounded-full bg-accent text-sm font-extrabold text-ink transition hover:bg-accent-dark"
