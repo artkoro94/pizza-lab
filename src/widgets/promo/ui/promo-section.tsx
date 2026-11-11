@@ -17,7 +17,7 @@ export function PromoSection() {
                 <span className="inline-flex items-center gap-2"><Check size={15} /> Тесто собственного приготовления</span>
               </div>
             </div>
-            <a href="#menu" className="inline-flex h-14 items-center justify-center gap-4 rounded-full bg-ink px-7 text-sm font-bold text-white transition hover:scale-105">Найти любимую <ArrowUpRight size={17} /></a>
+            <a href="#menu" className="inline-flex h-14 items-center justify-center gap-4 rounded-full bg-ink px-7 text-sm font-bold text-accent transition hover:scale-105">Найти любимую <ArrowUpRight size={17} /></a>
           </div>
         </div>
       </Container>
