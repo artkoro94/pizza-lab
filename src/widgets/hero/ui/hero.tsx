@@ -48,12 +48,12 @@ export function Hero() {
           <div className="absolute inset-[23%] rounded-full bg-accent/15 blur-3xl" />
           <div className="absolute inset-0 rotate-[-12deg]">
             <Image
-              src="/images/pizza-hero.svg"
+              src="/images/pizza-hero.webp"
               alt="Аппетитная пицца с сыром и свежими ингредиентами"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 48vw"
-              className="object-contain drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]"
+              className="object-cover drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]"
             />
           </div>
           <div className="absolute bottom-[9%] left-0 rounded-2xl border border-white/10 bg-[#242321]/90 px-5 py-4 shadow-2xl backdrop-blur">
