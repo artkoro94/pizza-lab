@@ -17,6 +17,14 @@ export const checkoutSchema = z
     comment: z.string().trim().max(500, "Комментарий не должен превышать 500 символов"),
   })
   .superRefine((data, context) => {
+    if (data.deliveryMethod === "pickup" && data.paymentMethod !== "online") {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["paymentMethod"],
+        message: "При самовывозе доступна только онлайн-оплата",
+      });
+    }
+
     if (data.deliveryMethod === "delivery" && data.address.length < 5) {
       context.addIssue({
         code: z.ZodIssueCode.custom,
