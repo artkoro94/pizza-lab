@@ -111,7 +111,7 @@ export function CheckoutForm() {
             <h2 className="font-display text-xl font-black">Контактные данные</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <label className={labelClass}>Ваше имя
-                <input {...register("customerName")} autoComplete="name" placeholder="Например, Артём" className={inputClass} />
+                <input {...register("customerName")} autoComplete="name" placeholder="Например, Александр" className={inputClass} />
                 {errors.customerName && <span className="mt-1 block text-xs font-medium text-red-600">{errors.customerName.message}</span>}
               </label>
               <label className={labelClass}>Телефон
