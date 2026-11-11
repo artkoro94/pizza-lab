@@ -1,4 +1,4 @@
-import { Clock3, MapPin, PackageCheck, ShoppingBag, Truck } from "lucide-react";
+import { Clock3, PackageCheck, ShoppingBag, Truck } from "lucide-react";
 import { Container } from "@/shared/ui/container";
 
 const terms = [
@@ -39,10 +39,6 @@ export function DeliveryTermsSection() {
                 <div><h3 className="text-sm font-extrabold">{title}</h3><p className="mt-2 text-sm leading-6 text-black/55">{description}</p></div>
               </article>
             ))}
-          </div>
-          <div className="mt-5 flex items-start gap-3 rounded-2xl border border-black/10 p-5 text-xs leading-5 text-black/50">
-            <MapPin size={16} className="mt-0.5 shrink-0" />
-            <p>Условия демонстрационные, не являются публичной офертой и не подтверждают доступность доставки по конкретному адресу. Финальные условия, адреса, часы работы и зона доставки определяются рестораном.</p>
           </div>
         </div>
       </Container>
