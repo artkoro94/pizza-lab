@@ -22,7 +22,7 @@ const DELIVERY_PRICE = 199;
 const FREE_DELIVERY_FROM = 1500;
 
 const inputClass =
-  "mt-2 h-12 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-0 focus-visible:outline-none";
+  "checkout-field mt-2 h-12 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-0";
 const labelClass = "block text-xs font-bold text-ink";
 
 export function CheckoutForm() {
@@ -171,7 +171,7 @@ export function CheckoutForm() {
               </label>
             </div>
             <label className={`${labelClass} mt-5`}>Комментарий к заказу
-              <textarea {...register("comment")} rows={3} placeholder="Здесь вы можете написать ваши пожелания к заказу" className="mt-2 w-full resize-y rounded-xl border border-black/10 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-0 focus-visible:outline-none" />
+              <textarea {...register("comment")} rows={3} placeholder="Здесь вы можете написать ваши пожелания к заказу" className="checkout-field mt-2 w-full resize-y rounded-xl border border-black/10 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-0" />
               {errors.comment && <span className="mt-1 block text-xs font-medium text-red-600">{errors.comment.message}</span>}
             </label>
           </section>
