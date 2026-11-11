@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import {
   selectCartTotal,
@@ -20,21 +19,8 @@ export function CartDrawer() {
   const decrease = useCartStore((state) => state.decrease);
   const removeItem = useCartStore((state) => state.removeItem);
   const total = useCartStore(selectCartTotal);
-  const [mounted, setMounted] = useState(isOpen);
-
-  useEffect(() => {
-    if (isOpen) {
-      setMounted(true);
-      return;
-    }
-    const timeoutId = window.setTimeout(() => setMounted(false), 300);
-    return () => window.clearTimeout(timeoutId);
-  }, [isOpen]);
-
-  if (!mounted) return null;
-
   return (
-    <div className={`fixed inset-0 z-50 transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}>
+    <div aria-hidden={!isOpen} inert={!isOpen} className={`invisible fixed inset-0 z-50 opacity-0 transition-[opacity,visibility] duration-300 ease-in-out ${isOpen ? "visible opacity-100 delay-0" : "pointer-events-none delay-300"}`}>
       <button
         type="button"
         aria-label="Закрыть корзину"
@@ -43,7 +29,7 @@ export function CartDrawer() {
       />
       <aside
         role="dialog"
-        aria-modal="true"
+        aria-modal={isOpen}
         aria-labelledby="cart-title"
         className={`absolute inset-y-0 right-0 flex w-full max-w-[460px] flex-col bg-paper text-ink shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
