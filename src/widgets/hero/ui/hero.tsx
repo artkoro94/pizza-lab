@@ -48,7 +48,7 @@ export function Hero() {
           <div className="absolute inset-[23%] rounded-full bg-accent/15 blur-3xl" />
           <div className="absolute inset-0 rotate-[-12deg]">
             <Image
-              src="/images/pizza-lab-realistic-images/public/images/pizza-hero.webp"
+              src="/images/pizza-hero.webp"
               alt="Аппетитная пицца с сыром и свежими ингредиентами"
               fill
               priority
