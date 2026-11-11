@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Clock3, MapPin, PackageCheck, ShoppingBag, Truck, X } from "lucide-react";
 
 const terms = [
@@ -32,6 +32,8 @@ type DeliveryInfoButtonProps = {
 
 export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonProps) {
   const [open, setOpen] = useState(false);
+  const dialogId = useId();
+  const titleId = `${dialogId}-title`;
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -86,7 +88,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
 
   return (
     <>
-      <button ref={triggerRef} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open} aria-controls="delivery-terms-dialog" className={buttonClass}>
+      <button ref={triggerRef} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open} aria-controls={dialogId} className={buttonClass}>
         {variant === "promo" ? "Условия доставки и оплаты" : "Условия заказа"}
       </button>
 
@@ -99,10 +101,10 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
         >
           <section
             ref={dialogRef}
-            id="delivery-terms-dialog"
+            id={dialogId}
             role="dialog"
             aria-modal="true"
-            aria-labelledby="delivery-dialog-title"
+            aria-labelledby={titleId}
             tabIndex={-1}
             className="relative my-auto w-full max-w-[620px] rounded-[1.75rem] bg-paper p-6 text-ink shadow-2xl outline-none sm:p-9"
           >
@@ -117,7 +119,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
             </button>
 
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-dark">PIZZA LAB · ИНФОРМАЦИЯ</p>
-            <h2 id="delivery-dialog-title" className="mt-3 max-w-md font-display text-3xl font-black tracking-tight sm:text-4xl">
+            <h2 id={titleId} className="mt-3 max-w-md font-display text-3xl font-black tracking-tight sm:text-4xl">
               Условия заказа<span className="text-accent">.</span>
             </h2>
             <p className="mt-3 max-w-lg text-sm leading-6 text-black/55">
