@@ -143,7 +143,7 @@ export function CheckoutForm() {
               <div className="mt-5 rounded-2xl bg-paper p-4">
                 <div className="flex items-center gap-2 text-sm font-bold"><MapPin size={16} className="text-accent-dark" /> Адрес доставки</div>
                 <label className={`${labelClass} mt-4`}>Улица и дом
-                  <input {...register("address")} autoComplete="street-address" placeholder="Например, ул. Лесная, 12" className={inputClass} />
+                  <input {...register("address")} autoComplete="street-address" placeholder="Например, ул. Лесная, 85" className={inputClass} />
                   {errors.address && <span className="mt-1 block text-xs font-medium text-red-600">{errors.address.message}</span>}
                 </label>
                 <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
