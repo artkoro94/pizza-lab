@@ -52,6 +52,7 @@ export function Hero() {
               alt="Аппетитная пицца с сыром и свежими ингредиентами"
               fill
               priority
+              quality={95}
               sizes="(max-width: 1024px) 90vw, 48vw"
               className="object-cover drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]"
             />
