@@ -8,7 +8,8 @@ export function Footer() {
         <div className="flex flex-col justify-between gap-10 border-b border-white/10 pb-10 md:flex-row md:items-end">
           <div>
             <a href="#" className="font-display text-3xl font-black tracking-[-0.08em]">PIZZA<span className="text-accent">LAB</span></a>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-white/40">Горячая пицца, яркие вкусы и доставка с заботой. Работаем в демонстрационном режиме.</p>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-white/40">Горячая пицца, яркие вкусы и доставка с заботой.</p>
+            <p className="mt-3 max-w-lg text-xs leading-5 text-white/35">PIZZA LAB — демонстрационный концепт сайта. Сайт не является публичной офертой. Заказы и платежи в демонстрационной версии не принимаются; информация об ассортименте, ценах и доставке приведена для примера.</p>
           </div>
           <div className="flex flex-col gap-2 text-sm">
             <span className="text-xs font-bold uppercase tracking-widest text-white/35">Есть вопросы?</span>
