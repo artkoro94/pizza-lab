@@ -16,7 +16,7 @@ export function CartButton() {
       type="button"
       onClick={() => setOpen(true)}
       aria-label={`Открыть корзину: ${count} товаров на ${formatPrice(total)}`}
-      className="fixed bottom-5 right-5 z-40 inline-flex h-14 items-center gap-3 rounded-full bg-accent px-5 text-ink shadow-[0_10px_35px_rgba(0,0,0,0.22)] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(0,0,0,0.28)] active:scale-95 sm:bottom-7 sm:right-7"
+      className="fixed bottom-5 right-5 z-40 inline-flex h-14 items-center gap-3 rounded-full cursor-pointer bg-accent px-5 text-ink shadow-[0_10px_35px_rgba(0,0,0,0.22)] transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(0,0,0,0.28)] active:scale-95 sm:bottom-7 sm:right-7"
     >
       <span className="relative grid size-8 place-items-center rounded-full bg-ink/10">
         <ShoppingBag size={18} />
