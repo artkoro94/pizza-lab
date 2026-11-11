@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { ArrowLeft, CheckCircle2, MapPin, ShoppingBag } from "lucide-react";
 import {
   selectCartTotal,
@@ -33,8 +33,8 @@ export function CheckoutForm() {
 
   const {
     register,
+    control,
     handleSubmit,
-    watch,
     formState: { errors, isSubmitting },
   } = useForm<CheckoutFormValues>({
     resolver: zodResolver(checkoutSchema),
@@ -52,7 +52,7 @@ export function CheckoutForm() {
     },
   });
 
-  const deliveryMethod = watch("deliveryMethod");
+  const deliveryMethod = useWatch({ control, name: "deliveryMethod" });
   const deliveryPrice =
     deliveryMethod === "pickup" || total >= FREE_DELIVERY_FROM ? 0 : DELIVERY_PRICE;
   const finalTotal = total + deliveryPrice;
