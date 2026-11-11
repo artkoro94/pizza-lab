@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CartDrawer } from "@/features/cart/ui/cart-drawer";
 import { CartHydration } from "@/features/cart/ui/cart-hydration";
+import { CartToast } from "@/features/cart/ui/cart-toast";
 import { siteConfig } from "@/shared/config/site";
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <CartHydration />
         {children}
         <CartDrawer />
+        <CartToast />
       </body>
     </html>
   );
