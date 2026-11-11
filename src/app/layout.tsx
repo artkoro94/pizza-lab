@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { CartDrawer } from "@/features/cart/ui/cart-drawer";
+import { CartHydration } from "@/features/cart/ui/cart-hydration";
 import { siteConfig } from "@/shared/config/site";
 
 export const metadata: Metadata = {
@@ -29,7 +31,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        <CartHydration />
+        {children}
+        <CartDrawer />
+      </body>
     </html>
   );
 }
