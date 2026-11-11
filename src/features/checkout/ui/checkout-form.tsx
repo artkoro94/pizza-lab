@@ -45,6 +45,7 @@ export function CheckoutForm() {
       address: "",
       apartment: "",
       entrance: "",
+      intercom: "",
       floor: "",
       paymentMethod: "courier",
       comment: "",
@@ -138,10 +139,11 @@ export function CheckoutForm() {
                   <input {...register("address")} autoComplete="street-address" placeholder="Например, ул. Лесная, 12" className={inputClass} />
                   {errors.address && <span className="mt-1 block text-xs font-medium text-red-600">{errors.address.message}</span>}
                 </label>
-                <div className="mt-4 grid grid-cols-3 gap-3">
+                <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                   <label className={labelClass}>Квартира<input {...register("apartment")} placeholder="24" className={inputClass} /></label>
                   <label className={labelClass}>Подъезд<input {...register("entrance")} placeholder="2" className={inputClass} /></label>
                   <label className={labelClass}>Этаж<input {...register("floor")} placeholder="5" className={inputClass} /></label>
+                  <label className={labelClass}>Домофон <span className="font-normal text-black/40">(необязательно)</span><input {...register("intercom")} placeholder="Код домофона" className={inputClass} /></label>
                 </div>
               </div>
             )}
@@ -160,7 +162,7 @@ export function CheckoutForm() {
               </label>
             </div>
             <label className={`${labelClass} mt-5`}>Комментарий к заказу
-              <textarea {...register("comment")} rows={3} placeholder="Домофон, пожелания к заказу..." className="mt-2 w-full resize-y rounded-xl border border-black/10 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-2 focus:ring-accent/15" />
+              <textarea {...register("comment")} rows={3} placeholder="Здесь вы можете написать ваши пожелания к заказу" className="mt-2 w-full resize-y rounded-xl border border-black/10 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-2 focus:ring-accent/15" />
               {errors.comment && <span className="mt-1 block text-xs font-medium text-red-600">{errors.comment.message}</span>}
             </label>
           </section>
