@@ -19,7 +19,7 @@ export function MenuSection() {
           {products.map((product, index) => (
             <article key={product.id} className="group overflow-hidden rounded-[1.35rem] bg-white transition duration-300 hover:-translate-y-2 hover:shadow-[0_22px_60px_rgba(35,25,18,0.10)]">
               <div className="relative aspect-[1.12] overflow-hidden bg-[#eee9e2]">
-                <Image src={product.image} alt={product.name} fill unoptimized sizes="(max-width: 640px) 90vw, (max-width: 1280px) 44vw, 23vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                <Image src={product.image} alt={product.name} fill sizes="(max-width: 640px) 90vw, (max-width: 1280px) 44vw, 23vw" className="object-cover transition duration-700 group-hover:scale-105" />
                 {product.badge && <span className="absolute left-4 top-4 rounded-full bg-ink px-3 py-1.5 text-[9px] font-black tracking-[0.16em] text-white">{product.badge}</span>}
                 <span className="absolute bottom-4 right-4 grid size-11 place-items-center rounded-full bg-accent text-ink shadow-lg transition group-hover:rotate-90"><Plus size={20} /></span>
               </div>
