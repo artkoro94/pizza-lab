@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Clock3, MapPin, PackageCheck, ShoppingBag, Truck, X } from "lucide-react";
 
 const terms = [
@@ -93,7 +94,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
         {variant === "promo" ? "Условия доставки и оплаты" : "Условия заказа"}
       </button>
 
-      {open && (
+      {open && createPortal(
         <div
           className="fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-black/70 p-4 backdrop-blur-sm"
           onMouseDown={(event) => {
@@ -154,7 +155,8 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
               Понятно
             </button>
           </section>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
