@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowDown, ArrowUpRight, Clock3, Flame } from "lucide-react";
 import { StoreHoursBoard } from "@/features/store-hours/ui/store-hours-board";
 import { Container } from "@/shared/ui/container";
@@ -22,7 +21,7 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Link href="#menu" className="inline-flex h-14 items-center gap-4 rounded-full bg-accent px-7 text-sm font-extrabold text-ink transition hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(255,91,46,0.25)]">
+            <Link to="#menu" className="inline-flex h-14 items-center gap-4 rounded-full bg-accent px-7 text-sm font-extrabold text-ink transition hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(255,91,46,0.25)]">
               Выбрать пиццу <ArrowUpRight size={18} />
             </Link>
             <span className="text-xs font-semibold text-white/45">от 490 ₽</span>
@@ -45,14 +44,11 @@ export function Hero() {
           <div className="absolute inset-[17%] rounded-full border border-dashed border-white/10" />
           <div className="absolute inset-[23%] rounded-full bg-accent/15 blur-3xl" />
           <div className="absolute inset-0 rotate-[-12deg]">
-            <Image
-              src="/images/pizza-hero.jpg"
+            <img
+              src={import.meta.env.BASE_URL + "images/pizza-hero.jpg"}
               alt="Аппетитная пицца с сыром и свежими ингредиентами"
-              fill
-              priority
-              quality={95}
-              sizes="(max-width: 1024px) 90vw, 48vw"
-              className="object-contain drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]"
+              fetchPriority="high"
+              className="h-full w-full object-contain drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]"
             />
           </div>
           <div className="absolute bottom-[9%] left-0 rounded-2xl border border-white/10 bg-[#242321]/90 px-5 py-4 shadow-2xl backdrop-blur">

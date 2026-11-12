@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /pizza-lab/checkout
+Sitemap: https://artkoro94.github.io/pizza-lab/sitemap.xml

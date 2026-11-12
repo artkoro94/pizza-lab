@@ -1,6 +1,4 @@
-const deploymentUrl = process.env.NEXT_PUBLIC_SITE_URL ?? (
-  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"
-);
+const deploymentUrl = import.meta.env.VITE_SITE_URL ?? "https://artkoro94.github.io/pizza-lab";
 
 export const siteConfig = {
   name: "PIZZA LAB",
