@@ -13,7 +13,11 @@ export function PromoSection() {
           <div className="relative flex flex-col items-center gap-10 text-center lg:grid lg:grid-cols-[1fr_auto] lg:items-end lg:text-left">
             <div className="flex w-full flex-col items-center lg:items-start">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-black/55">Без компромиссов</p>
-              <h2 className="mt-5 w-full text-center font-display text-5xl font-black uppercase leading-[0.95] tracking-[-0.075em] sm:text-7xl lg:text-left">Хорошая пицца<br />не нуждается<br />в поводе.</h2>
+              <h2 className="mx-auto mt-5 flex w-full flex-col items-center font-display text-5xl font-black uppercase leading-[0.95] tracking-[-0.075em] sm:text-7xl lg:mx-0 lg:items-start">
+                <span className="block w-full text-center lg:text-left">Хорошая пицца</span>
+                <span className="block w-full text-center lg:text-left">не нуждается</span>
+                <span className="block w-full text-center lg:text-left">в поводе.</span>
+              </h2>
               <div className="mt-8 flex w-full flex-wrap justify-center gap-x-7 gap-y-3 text-xs font-bold lg:justify-start">
                 <span className="inline-flex items-center gap-2"><Check size={15} /> Свежие продукты</span>
                 <span className="inline-flex items-center gap-2"><Check size={15} /> Тесто собственного приготовления</span>
