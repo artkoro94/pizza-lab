@@ -96,7 +96,7 @@ export function CheckoutForm() {
 
   return (
     <Container className="py-12 sm:py-16">
-      <Link to="/#menu" className="mb-2 inline-flex h-11 w-fit items-center gap-2 rounded-full bg-ink px-5 text-sm font-bold text-white shadow-sm transition-colors duration-200 ease-in-out hover:bg-accent hover:text-ink focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-accent"><ArrowLeft size={16} /> Вернуться к меню</Link>
+      <Link to="/" className="mb-2 inline-flex h-11 w-fit items-center gap-2 rounded-full bg-ink px-5 text-sm font-bold text-white shadow-sm transition-colors duration-200 ease-in-out hover:bg-accent hover:text-ink focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-accent"><ArrowLeft size={16} /> На главную</Link>
       <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_380px] lg:gap-12">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <div>
