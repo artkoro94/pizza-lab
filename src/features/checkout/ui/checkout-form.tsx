@@ -75,7 +75,7 @@ export function CheckoutForm() {
           <p className="mt-6 text-[10px] font-black uppercase tracking-[0.2em] text-accent-dark">PIZZA LAB · ДЕМО</p>
           <h1 className="mt-3 font-display text-3xl font-black sm:text-4xl">Заказ оформлен!</h1>
           <p className="mt-3 text-sm leading-6 text-black/50">Это демонстрационный сценарий. Заказ № {orderNumber} не отправлен в ресторан, а данные формы никуда не передавались.</p>
-          <Link href="/" className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-ink px-7 text-sm font-extrabold text-white transition hover:bg-accent hover:text-ink">Вернуться на главную</Link>
+          <Link to="/" className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-ink px-7 text-sm font-extrabold text-white transition hover:bg-accent hover:text-ink">Вернуться на главную</Link>
         </div>
       </Container>
     );
@@ -88,7 +88,7 @@ export function CheckoutForm() {
           <div className="mx-auto grid size-16 place-items-center rounded-full bg-paper text-accent"><ShoppingBag size={30} /></div>
           <h1 className="mt-6 font-display text-3xl font-black">Корзина пока пуста</h1>
           <p className="mt-2 text-sm text-black/50">Добавь пиццу из меню, и мы сможем перейти к оформлению.</p>
-          <Link href="/#menu" className="mt-7 inline-flex h-12 items-center justify-center rounded-full bg-accent px-7 text-sm font-extrabold">Выбрать пиццу</Link>
+          <Link to="/#menu" className="mt-7 inline-flex h-12 items-center justify-center rounded-full bg-accent px-7 text-sm font-extrabold">Выбрать пиццу</Link>
         </div>
       </Container>
     );
@@ -96,7 +96,7 @@ export function CheckoutForm() {
 
   return (
     <Container className="py-12 sm:py-16">
-      <Link href="/#menu" className="inline-flex items-center gap-2 text-xs font-bold text-black/45 transition hover:text-ink"><ArrowLeft size={15} /> Вернуться к меню</Link>
+      <Link to="/#menu" className="inline-flex items-center gap-2 text-xs font-bold text-black/45 transition hover:text-ink"><ArrowLeft size={15} /> Вернуться к меню</Link>
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_380px] lg:gap-12">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <div>
