@@ -24,7 +24,7 @@ export function PromoSection() {
               </div>
             </div>
             <div className="mx-auto flex w-full max-w-sm flex-col items-stretch gap-3 lg:mx-0 lg:w-auto lg:max-w-none">
-              <a href="#menu" className="inline-flex h-14 w-full items-center justify-center gap-4 rounded-full bg-ink px-5 text-sm font-bold text-accent transition hover:scale-105">Найти любимую <ArrowUpRight size={17} /></a>
+              <a href="#menu" className="inline-flex h-14 w-full items-center justify-center gap-4 rounded-full bg-ink px-5 text-sm font-bold text-accent transition hover:scale-105">Найти свою пиццу <ArrowUpRight size={17} /></a>
               <a href={`tel:${siteConfig.phone.replace(/[^+\\d]/g, "")}`} className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-ink/25 px-5 text-sm font-bold text-ink transition hover:bg-ink/5"><Phone size={16} /> {siteConfig.phone}</a>
               <DeliveryInfoButton variant="promo" />
             </div>
