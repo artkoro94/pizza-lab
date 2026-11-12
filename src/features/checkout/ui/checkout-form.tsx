@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useWatch } from "react-hook-form";
-import { ArrowLeft, CheckCircle2, MapPin, ShoppingBag } from "lucide-react";
+import { CheckCircle2, MapPin, ShoppingBag } from "lucide-react";
 import {
   selectCartTotal,
   useCartStore,
@@ -22,6 +22,25 @@ const formatPrice = (price: number) =>
 const inputClass =
   "checkout-field mt-2 h-12 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-black/30 focus:border-accent focus:ring-0";
 const labelClass = "block text-xs font-bold text-ink";
+
+function CheckoutHeader() {
+  return (
+    <header className="bg-ink text-white">
+      <Container className="flex h-16 items-center justify-between">
+        <Link to="/" aria-label="Pizza Lab — на главную" className="font-display text-2xl font-black tracking-[-0.08em] text-white">
+          PIZZA<span className="text-accent">LAB</span>
+        </Link>
+        <Link to="/" className="inline-flex h-10 items-center gap-2 rounded-full border border-white/15 px-4 text-sm font-bold text-white transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <svg aria-hidden="true" viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5" />
+            <path d="m12 19-7-7 7-7" />
+          </svg>
+          На главную
+        </Link>
+      </Container>
+    </header>
+  );
+}
 
 export function CheckoutForm() {
   const items = useCartStore((state) => state.items);
@@ -95,9 +114,10 @@ export function CheckoutForm() {
   }
 
   return (
+    <>
+    <CheckoutHeader />
     <Container className="py-12 sm:py-16">
-      <Link to="/" className="mb-2 inline-flex h-11 w-fit items-center gap-2 rounded-full bg-ink px-5 text-sm font-bold text-white shadow-sm transition-colors duration-200 ease-in-out hover:bg-accent hover:text-ink focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-accent"><ArrowLeft size={16} /> На главную</Link>
-      <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_380px] lg:gap-12">
+      <div className="grid gap-8 lg:grid-cols-[1fr_380px] lg:gap-12">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-dark">Последний шаг</p>
@@ -200,5 +220,6 @@ export function CheckoutForm() {
         </aside>
       </div>
     </Container>
+    </>
   );
 }
