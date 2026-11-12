@@ -26,16 +26,25 @@ function RouteMetadata() {
     const isCheckout = location.pathname.endsWith("/checkout");
     document.title = isCheckout ? "Оформление заказа | PIZZA LAB" : "PIZZA LAB — пицца с характером";
     let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
-    if (!robots) {
-      robots = document.createElement("meta");
-      robots.name = "robots";
-      document.head.appendChild(robots);
-    }
+    if (!robots) { robots = document.createElement("meta"); robots.name = "robots"; document.head.appendChild(robots); }
     robots.content = isCheckout ? "noindex, nofollow" : "index, follow";
   }, [location.pathname]);
   return null;
 }
 
+function ScrollToHash() {
+  const location = useLocation();
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      return;
+    }
+    const id = decodeURIComponent(location.hash.slice(1));
+    requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  }, [location.pathname, location.hash]);
+  return null;
+}
+
 export default function App() {
-  return <><CartHydration /><RouteMetadata /><Routes><Route path="/" element={<HomePage />} /><Route path="/checkout" element={<CheckoutPage />} /><Route path="*" element={<HomePage />} /></Routes><CartButton /><CartDrawer /><CartToast /></>;
+  return <><CartHydration /><RouteMetadata /><ScrollToHash /><Routes><Route path="/" element={<HomePage />} /><Route path="/checkout" element={<CheckoutPage />} /><Route path="*" element={<HomePage />} /></Routes><CartButton /><CartDrawer /><CartToast /></>;
 }
