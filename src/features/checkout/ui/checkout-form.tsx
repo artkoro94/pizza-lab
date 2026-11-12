@@ -173,7 +173,7 @@ export function CheckoutForm() {
             </label>
           </section>
 
-          <button type="submit" disabled={isSubmitting} className="h-14 w-full rounded-full bg-accent px-6 text-sm font-black text-ink transition hover:bg-accent-dark disabled:cursor-wait disabled:opacity-60">
+          <button type="submit" disabled={isSubmitting} className="h-14 w-full cursor-pointer rounded-full bg-accent px-6 text-sm font-black text-ink transition hover:bg-accent-dark disabled:cursor-wait disabled:opacity-60">
             {isSubmitting ? "Оформляем..." : `Подтвердить демо-заказ · ${formatPrice(finalTotal)}`}
           </button>
           <p className="text-center text-xs leading-5 text-black/40">Демонстрационный режим: форма не отправляет персональные данные и не создаёт реальный заказ.</p>
