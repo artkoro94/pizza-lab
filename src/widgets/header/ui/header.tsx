@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/shared/ui/container";
 import { DeliveryInfoButton } from "@/features/delivery/ui/delivery-info-button";

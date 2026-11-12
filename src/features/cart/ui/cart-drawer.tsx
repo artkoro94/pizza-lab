@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import {
   selectCartTotal,
@@ -68,7 +67,7 @@ export function CartDrawer() {
               {items.map((item) => (
                 <article key={item.id} className="flex gap-4 rounded-2xl bg-white p-3 shadow-sm">
                   <div className="relative size-24 shrink-0 overflow-hidden rounded-xl bg-[#eee9e2]">
-                    <Image src={item.image} alt={item.name} fill sizes="96px" className="object-cover" />
+                    <img src={item.image} alt={item.name} className="absolute inset-0 h-full w-full object-cover" />
                   </div>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <div className="flex items-start justify-between gap-2">
