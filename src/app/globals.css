@@ -36,7 +36,7 @@ button { font: inherit; }
 
 /* Image loading: stable frame, subtle shimmer, then a soft reveal. */
 .image-reveal { position: relative; display: block; overflow: hidden; isolation: isolate; background: linear-gradient(110deg, #e9e3d9 25%, #f5f1ea 38%, #e9e3d9 52%); background-size: 220% 100%; animation: image-shimmer 1.5s ease-in-out infinite; }
-.image-reveal__image { opacity: 0; filter: blur(10px); transition: opacity 480ms ease, filter 600ms ease; }
+.image-reveal__image { opacity: 0; filter: blur(10px); transition: opacity 480ms ease, filter 600ms ease, transform 700ms ease; }
 .image-reveal.is-ready { animation: none; background: transparent; }
 .image-reveal.is-ready .image-reveal__image { opacity: 1; filter: blur(0); }
 @keyframes image-shimmer { to { background-position-x: -220%; } }

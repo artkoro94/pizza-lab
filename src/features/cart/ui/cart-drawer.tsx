@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import {
   selectCartTotal,
@@ -11,6 +11,8 @@ const formatPrice = (price: number) =>
   new Intl.NumberFormat("ru-RU").format(price) + " ₽";
 
 export function CartDrawer() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const items = useCartStore((state) => state.items);
   const isOpen = useCartStore((state) => state.open);
   const setOpen = useCartStore((state) => state.setOpen);
@@ -100,7 +102,20 @@ export function CartDrawer() {
               <p className="mt-2 text-xs leading-5 text-black/40">Стоимость доставки рассчитается при оформлении заказа.</p>
               <Link
                 to="/#menu"
-                onClick={() => setOpen(false)}
+                onClick={(event) => {
+                  setOpen(false);
+                  if (location.pathname === "/") {
+                    event.preventDefault();
+                    requestAnimationFrame(() => {
+                      document.getElementById("menu")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    });
+                  } else {
+                    navigate("/#menu");
+                  }
+                }}
                 className="mt-4 flex h-11 w-full cursor-pointer items-center justify-center rounded-full border border-black/10 text-sm font-bold text-ink transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent/5"
               >
                 Хотите добавить пиццу? Выбрать в меню
