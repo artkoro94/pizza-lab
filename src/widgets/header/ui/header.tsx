@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-20 border-b border-white/10">
       <Container className="flex h-20 items-center justify-between">
-        <Link href="/" className="font-display text-2xl font-black tracking-[-0.08em] text-white">
+        <Link to="/" className="font-display text-2xl font-black tracking-[-0.08em] text-white">
           PIZZA<span className="text-accent">LAB</span>
           <span className="ml-1 align-top text-[9px] font-semibold tracking-normal text-white/50">®</span>
         </Link>
