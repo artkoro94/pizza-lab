@@ -84,7 +84,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
 
   const buttonClass =
     variant === "promo"
-      ? "inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-full border border-ink/25 px-6 text-xs font-extrabold uppercase tracking-wider text-ink transition-colors duration-200 ease-in-out hover:bg-ink/5"
+      ? "inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-ink/25 px-3 text-[10px] font-extrabold uppercase leading-tight tracking-[0.08em] text-center whitespace-normal transition-colors duration-200 ease-in-out hover:bg-ink/5 sm:text-xs sm:tracking-wider"
       : "cursor-pointer transition-colors duration-200 ease-in-out hover:text-white";
 
   return (
