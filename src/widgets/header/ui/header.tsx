@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/shared/ui/container";
-import { DeliveryInfoButton } from "@/features/delivery/ui/delivery-info-button";
 
 export function Header() {
   return (
@@ -12,17 +11,8 @@ export function Header() {
           <span className="ml-1 align-top text-[9px] font-semibold tracking-normal text-white/50">®</span>
         </Link>
 
-        <nav aria-label="Основная навигация" className="hidden items-center gap-9 text-sm font-medium text-white/65 md:flex">
-          <a href="#menu" className="transition hover:text-white">Меню</a>
-          <a href="#about" className="transition hover:text-white">О нас</a>
-          <DeliveryInfoButton />
-        </nav>
-
         <div className="flex items-center gap-3">
-          <a href="#menu" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-xs font-semibold text-accent transition hover:border-accent sm:hidden">
-            Меню <ArrowUpRight size={14} />
-          </a>
-          <Link to="/checkout" className="hidden items-center gap-2 rounded-full border border-accent/50 bg-accent px-4 py-2.5 text-sm font-extrabold text-ink transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent-dark sm:flex">
+          <Link to="/checkout" className="inline-flex items-center gap-2 rounded-full border border-accent/50 bg-accent px-4 py-2.5 text-xs font-extrabold text-ink transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent-dark sm:text-sm">
             Оформить заказ <ArrowUpRight size={15} />
           </Link>
         </div>
