@@ -19,9 +19,9 @@ button { font: inherit; }
 
 .hero-grid::before { position: absolute; inset: 0; z-index: -1; content: ""; opacity: .16; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.45) .55px, transparent .55px); background-size: 5px 5px; }
 
-/* Content stays visible by default; reveal effects never gate rendering. */
-[data-reveal] { opacity: 1; animation: reveal-in 650ms cubic-bezier(.2,.7,.2,1) both; }
-@keyframes reveal-in { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
+/* Opacity-only reveals keep fixed dialogs independent from animated ancestors. */
+[data-reveal] { opacity: 1; animation: reveal-in 650ms ease both; }
+@keyframes reveal-in { from { opacity: 0; } to { opacity: 1; } }
 .hero-art { animation: hero-float 8s ease-in-out infinite; will-change: transform; }
 @keyframes hero-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
