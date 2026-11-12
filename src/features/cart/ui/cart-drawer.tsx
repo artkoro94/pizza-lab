@@ -67,7 +67,7 @@ export function CartDrawer() {
               {items.map((item) => (
                 <article key={item.id} className="flex gap-4 rounded-2xl bg-white p-3 shadow-sm">
                   <div className="relative size-24 shrink-0 overflow-hidden rounded-xl bg-[#eee9e2]">
-                    <img src={item.image} alt={item.name} className="absolute inset-0 h-full w-full object-cover" />
+                    <img src={item.image.startsWith("/images/") ? import.meta.env.BASE_URL + item.image.slice(1) : item.image} alt={item.name} className="absolute inset-0 h-full w-full object-cover" />
                   </div>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <div className="flex items-start justify-between gap-2">
@@ -99,14 +99,14 @@ export function CartDrawer() {
               </div>
               <p className="mt-2 text-xs leading-5 text-black/40">Стоимость доставки рассчитается при оформлении заказа.</p>
               <Link
-                href="/#menu"
+                to="/#menu"
                 onClick={() => setOpen(false)}
                 className="mt-4 flex h-11 w-full cursor-pointer items-center justify-center rounded-full border border-black/10 text-sm font-bold text-ink transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent/5"
               >
                 Хотите добавить пиццу? Выбрать в меню
               </Link>
               <Link
-                href="/checkout"
+                to="/checkout"
                 onClick={() => setOpen(false)}
                 className="mt-5 flex h-14 w-full items-center justify-center rounded-full bg-accent text-sm font-extrabold text-ink transition hover:bg-accent-dark"
               >
