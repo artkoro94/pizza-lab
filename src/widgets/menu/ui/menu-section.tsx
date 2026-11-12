@@ -31,7 +31,7 @@ export function MenuSection() {
   return (
     <section id="menu" className="bg-paper py-24 text-ink sm:py-32">
       <Container>
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <div data-reveal className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-accent-dark">Наше меню / 01—04</p>
             <h2 className="mt-4 font-display text-5xl font-black uppercase leading-none tracking-[-0.07em] sm:text-7xl">Выбирай<br />свой вайб<span className="text-accent">.</span></h2>
@@ -49,7 +49,7 @@ export function MenuSection() {
             const size = selectedSizes[product.id] ?? "30";
             const selectedIndex = sizes.findIndex((option) => option.value === size);
             return (
-              <article key={product.id} className="group overflow-hidden rounded-[1.35rem] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(35,25,18,0.10)]">
+              <article key={product.id} data-reveal style={{ transitionDelay: `${index * 65}ms` }} className="group overflow-hidden rounded-[1.35rem] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(35,25,18,0.10)]">
                 <div className="relative aspect-[1.55] overflow-hidden bg-[#eee9e2]">
                   <img src={product.image} alt={product.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                   {product.badge && <span className="absolute left-4 top-4 rounded-full bg-ink px-3 py-1.5 text-[9px] font-black tracking-[0.16em] text-white">{product.badge}</span>}
@@ -61,19 +61,9 @@ export function MenuSection() {
                   </div>
                   <p className="mt-2 min-h-10 text-xs leading-5 text-black/45">{product.description}</p>
                   <div role="group" aria-label={`Размер пиццы ${product.name}`} className="relative mt-4 grid grid-cols-3 rounded-full bg-paper p-1">
-                    <span
-                      aria-hidden="true"
-                      className="pointer-events-none absolute bottom-1 left-1 top-1 w-[calc((100%-8px)/3)] rounded-full bg-ink shadow-sm transition-transform duration-300 ease-in-out"
-                      style={{ transform: `translateX(${selectedIndex * 100}%)` }}
-                    />
+                    <span aria-hidden="true" className="pointer-events-none absolute bottom-1 left-1 top-1 w-[calc((100%-8px)/3)] rounded-full bg-ink shadow-sm transition-transform duration-300 ease-in-out" style={{ transform: `translateX(${selectedIndex * 100}%)` }} />
                     {sizes.map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => chooseSize(product.id, option.value)}
-                        aria-pressed={size === option.value}
-                        className={`relative z-10 cursor-pointer rounded-full px-2 py-2 text-[11px] font-extrabold transition-colors duration-300 ease-in-out ${size === option.value ? "text-white" : "text-black/45 hover:text-ink"}`}
-                      >
+                      <button key={option.value} type="button" onClick={() => chooseSize(product.id, option.value)} aria-pressed={size === option.value} className={`relative z-10 cursor-pointer rounded-full px-2 py-2 text-[11px] font-extrabold transition-colors duration-300 ease-in-out ${size === option.value ? "text-white" : "text-black/45 hover:text-ink"}`}>
                         {option.label}
                       </button>
                     ))}
@@ -89,7 +79,7 @@ export function MenuSection() {
             );
           })}
         </div>
-        <div className="mt-10 flex justify-center">
+        <div data-reveal className="mt-10 flex justify-center">
           <DeliveryInfoButton variant="promo" />
         </div>
       </Container>
