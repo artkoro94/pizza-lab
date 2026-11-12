@@ -36,7 +36,7 @@ export function Hero() {
           </div></div>
           <div className="absolute bottom-[9%] left-0 rounded-2xl border border-white/10 bg-[#242321]/90 px-5 py-4 shadow-2xl backdrop-blur">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Любовь с первого кусочка</p>
-            <p className="mt-1 text-lg font-black">Сделано с огнём <span className="text-accent">↗</span></p>
+            <p className="mt-1 flex items-center gap-1 text-lg font-black">Сделано с огнём <ArrowUpRight className="text-accent" size={18} strokeWidth={2.5} /></p>
           </div>
           <div className="absolute right-[1%] top-[13%] grid size-20 rotate-12 place-items-center rounded-full bg-accent text-center text-[10px] font-black uppercase leading-tight tracking-wider text-ink shadow-xl">Только<br />горячая</div>
         </div>
