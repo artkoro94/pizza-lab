@@ -43,7 +43,7 @@ export function CartDrawer() {
           <div className="flex items-center gap-2">
             {items.length > 0 && (
               <button type="button" onClick={clear} className="inline-flex h-10 cursor-pointer items-center gap-2 rounded-full px-3 text-xs font-bold text-black/45 transition-colors duration-200 ease-in-out hover:bg-red-50 hover:text-red-600" aria-label="Очистить всю корзину">
-                <Trash2 size={14} /> Очистить
+                <Trash2 size={14} /> Очистить всё
               </button>
             )}
             <button type="button" onClick={() => setOpen(false)} aria-label="Закрыть" className="grid size-10 cursor-pointer place-items-center rounded-full border border-black/10 transition hover:bg-black/5">
