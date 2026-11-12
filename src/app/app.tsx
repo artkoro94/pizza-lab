@@ -36,6 +36,33 @@ function RouteMetadata() {
   return null;
 }
 
+function ScrollReveal() {
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.setAttribute("data-visible", "true"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.setAttribute("data-visible", "true");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
+}
+
 export default function App() {
-  return <><CartHydration /><RouteMetadata /><Routes><Route path="/" element={<HomePage />} /><Route path="/checkout" element={<CheckoutPage />} /><Route path="*" element={<HomePage />} /></Routes><CartButton /><CartDrawer /><CartToast /></>;
+  return <><CartHydration /><RouteMetadata /><ScrollReveal /><Routes><Route path="/" element={<HomePage />} /><Route path="/checkout" element={<CheckoutPage />} /><Route path="*" element={<HomePage />} /></Routes><CartButton /><CartDrawer /><CartToast /></>;
 }
