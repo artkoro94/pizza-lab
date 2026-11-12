@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowUpRight, Clock3, Flame } from "lucide-react";
 import { StoreHoursBoard } from "@/features/store-hours/ui/store-hours-board";
 import { Container } from "@/shared/ui/container";
+import { ImageWithReveal } from "@/shared/ui/image-with-reveal";
 
 export function Hero() {
   return (
@@ -31,7 +32,7 @@ export function Hero() {
           <div className="absolute inset-[17%] rounded-full border border-dashed border-white/10" />
           <div className="absolute inset-[23%] rounded-full bg-accent/15 blur-3xl" />
           <div className="hero-art absolute inset-0"><div className="absolute inset-0 rotate-[-12deg]">
-            <img src={import.meta.env.BASE_URL + "images/pizza-hero.jpg"} alt="Аппетитная пицца с сыром и свежими ингредиентами" fetchPriority="high" className="h-full w-full object-contain drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]" />
+            <ImageWithReveal src={import.meta.env.BASE_URL + "images/pizza-hero.jpg"} alt="Аппетитная пицца с сыром и свежими ингредиентами" fetchPriority="high" loading="eager" className="h-full w-full" imageClassName="h-full w-full object-contain drop-shadow-[0_35px_55px_rgba(0,0,0,0.45)]" />
           </div></div>
           <div className="absolute bottom-[9%] left-0 rounded-2xl border border-white/10 bg-[#242321]/90 px-5 py-4 shadow-2xl backdrop-blur">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Любовь с первого кусочка</p>

@@ -32,3 +32,12 @@ button { font: inherit; }
 @keyframes toast-in { from { opacity: 0; transform: translate3d(0, 12px, 0) scale(.98); } to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); } }
 @keyframes toast-in-right { from { opacity: 0; transform: translate3d(12px, 0, 0) scale(.98); } to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); } }
 .checkout-field:focus-visible { outline: none; }
+
+
+/* Image loading: stable frame, subtle shimmer, then a soft reveal. */
+.image-reveal { position: relative; display: block; overflow: hidden; isolation: isolate; background: linear-gradient(110deg, #e9e3d9 25%, #f5f1ea 38%, #e9e3d9 52%); background-size: 220% 100%; animation: image-shimmer 1.5s ease-in-out infinite; }
+.image-reveal__image { opacity: 0; filter: blur(10px); transition: opacity 480ms ease, filter 600ms ease; }
+.image-reveal.is-ready { animation: none; background: transparent; }
+.image-reveal.is-ready .image-reveal__image { opacity: 1; filter: blur(0); }
+@keyframes image-shimmer { to { background-position-x: -220%; } }
+@media (prefers-reduced-motion: reduce) { .image-reveal { animation: none; } .image-reveal__image { transition: none; filter: none; } }
