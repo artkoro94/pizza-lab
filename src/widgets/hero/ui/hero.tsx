@@ -6,9 +6,9 @@ import { Container } from "@/shared/ui/container";
 
 export function Hero() {
   return (
-    <section className="hero-grid relative isolate min-h-[760px] overflow-hidden bg-ink pt-32 text-white sm:min-h-[820px]">
+    <section className="hero-grid relative isolate min-h-[760px] overflow-hidden bg-ink pt-24 text-white sm:min-h-[820px] sm:pt-32">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_42%,rgba(255,91,46,0.18),transparent_38%)]" />
-      <Container className="relative grid min-h-[680px] items-center gap-10 pb-16 pt-10 lg:grid-cols-[1.05fr_0.95fr]">
+      <Container className="relative grid min-h-[680px] items-center gap-10 pb-16 pt-6 sm:pt-10 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="relative z-10 max-w-2xl">
           <StoreHoursBoard />
 
