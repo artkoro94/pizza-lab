@@ -22,9 +22,9 @@ export function Header() {
           <a href="#menu" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-xs font-semibold text-accent transition hover:border-accent sm:hidden">
             Меню <ArrowUpRight size={14} />
           </a>
-          <a href="#menu" className="hidden items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold text-accent transition hover:border-accent sm:flex">
-            Смотреть меню <ArrowUpRight size={15} />
-          </a>
+          <Link to="/checkout" className="hidden items-center gap-2 rounded-full border border-accent/50 bg-accent px-4 py-2.5 text-sm font-extrabold text-ink transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent-dark sm:flex">
+            Оформить заказ <ArrowUpRight size={15} />
+          </Link>
         </div>
       </Container>
     </header>
