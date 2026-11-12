@@ -21,7 +21,7 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Link href="#menu" className="inline-flex h-14 items-center gap-4 rounded-full bg-accent px-7 text-sm font-extrabold text-ink transition hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(255,91,46,0.25)]">
+            <Link to="#menu" className="inline-flex h-14 items-center gap-4 rounded-full bg-accent px-7 text-sm font-extrabold text-ink transition hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(255,91,46,0.25)]">
               Выбрать пиццу <ArrowUpRight size={18} />
             </Link>
             <span className="text-xs font-semibold text-white/45">от 490 ₽</span>
