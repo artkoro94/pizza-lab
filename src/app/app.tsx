@@ -17,7 +17,7 @@ function HomePage() {
 }
 
 function CheckoutPage() {
-  return <main className="min-h-screen bg-paper text-ink"><header className="border-b border-black/10 bg-ink py-5 text-white"><Container><a href={import.meta.env.BASE_URL} className="font-display text-xl font-black tracking-[-0.08em]">PIZZA<span className="text-accent">LAB</span></a></Container></header><CheckoutForm /></main>;
+  return <main className="min-h-screen bg-paper text-ink"><header className="border-b border-white/10 bg-ink text-white"><Container className="flex h-16 items-center justify-between"><a href={import.meta.env.BASE_URL} className="font-display text-2xl font-black tracking-[-0.08em]">PIZZA<span className="text-accent">LAB</span></a><a href={import.meta.env.BASE_URL} className="inline-flex h-10 items-center gap-2 rounded-full border border-white/15 px-4 text-sm font-bold text-white transition-colors duration-200 ease-in-out hover:border-accent hover:bg-accent hover:text-ink"><svg aria-hidden="true" viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></svg>На главную</a></Container></header><CheckoutForm /></main>;
 }
 
 function RouteMetadata() {
