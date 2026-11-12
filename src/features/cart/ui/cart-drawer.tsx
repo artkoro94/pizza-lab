@@ -98,7 +98,7 @@ export function CartDrawer() {
                 <span className="text-sm text-black/50">Итого</span>
                 <strong className="font-display text-2xl font-black tabular-nums">{formatPrice(total)}</strong>
               </div>
-              <p className="mt-2 text-xs leading-5 text-black/40">Доставка и оформление заказа будут добавлены на следующем этапе.</p>
+              <p className="mt-2 text-xs leading-5 text-black/40">Стоимость доставки рассчитается при оформлении заказа.</p>
               <Link
                 href="/#menu"
                 onClick={() => setOpen(false)}
