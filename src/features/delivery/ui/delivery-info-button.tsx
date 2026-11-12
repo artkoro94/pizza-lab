@@ -7,7 +7,7 @@ const terms = [
   {
     icon: Truck,
     title: "Доставка до двери",
-    description: "199 ₽. Бесплатно при заказе от 1 500 ₽.",
+    description: "199 ₽. Бесплатно при заказе от 1 500 ₽.",
   },
   {
     icon: ShoppingBag,
@@ -84,7 +84,7 @@ export function DeliveryInfoButton({ variant = "header" }: DeliveryInfoButtonPro
 
   const buttonClass =
     variant === "promo"
-      ? "inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-ink/25 px-3 text-[10px] font-extrabold uppercase leading-tight tracking-[0.08em] text-center whitespace-normal transition-colors duration-200 ease-in-out hover:bg-ink/5 sm:text-xs sm:tracking-wider"
+      ? "inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-ink/25 px-4 text-sm font-bold leading-none tracking-normal text-center whitespace-nowrap transition-colors duration-200 ease-in-out hover:bg-ink/5"
       : "cursor-pointer transition-colors duration-200 ease-in-out hover:text-white";
 
   return (
