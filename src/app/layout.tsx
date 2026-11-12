@@ -7,21 +7,37 @@ import { CartToast } from "@/features/cart/ui/cart-toast";
 import { siteConfig } from "@/shared/config/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "PIZZA LAB — пицца с характером",
     template: "%s | PIZZA LAB",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
+    url: siteConfig.url,
     locale: "ru_RU",
     siteName: siteConfig.name,
     title: "PIZZA LAB — пицца с характером",
     description: siteConfig.description,
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary",
+    title: "PIZZA LAB — пицца с характером",
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export const viewport: Viewport = {
