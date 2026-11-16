@@ -11,6 +11,7 @@ import { Header } from "@/widgets/header/ui/header";
 import { Hero } from "@/widgets/hero/ui/hero";
 import { MenuSection } from "@/widgets/menu/ui/menu-section";
 import { PromoSection } from "@/widgets/promo/ui/promo-section";
+import { NotFoundPage } from "@/pages/not-found-page";
 
 function HomePage() {
   return <><Header /><main><Hero /><MenuSection /><PromoSection /></main><Footer /></>;
@@ -24,10 +25,11 @@ function RouteMetadata() {
   const location = useLocation();
   useEffect(() => {
     const isCheckout = location.pathname.endsWith("/checkout");
-    document.title = isCheckout ? "Оформление заказа | PIZZA LAB" : "PIZZA LAB — пицца с характером";
+    const isNotFound = location.pathname !== "/" && !location.pathname.endsWith("/checkout");
+    document.title = isCheckout ? "Оформление заказа | PIZZA LAB" : isNotFound ? "Страница не найдена | PIZZA LAB" : "PIZZA LAB — пицца с характером";
     let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
     if (!robots) { robots = document.createElement("meta"); robots.name = "robots"; document.head.appendChild(robots); }
-    robots.content = isCheckout ? "noindex, nofollow" : "index, follow";
+    robots.content = isCheckout || isNotFound ? "noindex, nofollow" : "index, follow";
   }, [location.pathname]);
   return null;
 }
@@ -46,5 +48,5 @@ function ScrollToHash() {
 }
 
 export default function App() {
-  return <><CartHydration /><RouteMetadata /><ScrollToHash /><Routes><Route path="/" element={<HomePage />} /><Route path="/checkout" element={<CheckoutPage />} /><Route path="*" element={<HomePage />} /></Routes><CartButton /><CartDrawer /><CartToast /></>;
+  return <><CartHydration /><RouteMetadata /><ScrollToHash /><Routes><Route path="/" element={<HomePage />} /><Route path="/checkout" element={<CheckoutPage />} /><Route path="*" element={<NotFoundPage />} /></Routes><CartButton /><CartDrawer /><CartToast /></>;
 }
