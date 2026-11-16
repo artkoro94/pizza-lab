@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useWatch } from "react-hook-form";
 import { CheckCircle2, MapPin, ShoppingBag } from "lucide-react";
+import { Spinner } from "@/shared/ui/spinner";
 import {
   selectCartTotal,
   useCartStore,
@@ -172,8 +173,8 @@ export function CheckoutForm() {
             </label>
           </section>
 
-          <button type="submit" disabled={isSubmitting} className="h-14 w-full cursor-pointer rounded-full bg-accent px-6 text-sm font-black text-ink transition hover:bg-accent-dark disabled:cursor-wait disabled:opacity-60">
-            {isSubmitting ? "Оформляем..." : `Подтвердить демо-заказ · ${formatPrice(finalTotal)}`}
+          <button type="submit" disabled={isSubmitting} aria-busy={isSubmitting} className="inline-flex h-14 w-full cursor-pointer items-center justify-center gap-3 rounded-full bg-accent px-6 text-sm font-black text-ink transition hover:bg-accent-dark disabled:cursor-wait disabled:opacity-60">
+            {isSubmitting ? <><Spinner size="sm" label="Оформляем заказ" /> Оформляем...</> : `Подтвердить демо-заказ · ${formatPrice(finalTotal)}`}
           </button>
           <p className="text-center text-xs leading-5 text-black/40">Демонстрационный режим: форма не отправляет персональные данные и не создаёт реальный заказ.</p>
         </form>
